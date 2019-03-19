@@ -1,6 +1,6 @@
 from robbyjo/r-mkl-bioconductor:3.4.1
 
-MAINTAINER Seung Hoan Choi (choi@broadinstitute.org)
+MAINTAINER Seung Hoan Choi (schoi@broadinstitute.org)
 
 RUN apt-get update
 RUN apt-get -y install git
