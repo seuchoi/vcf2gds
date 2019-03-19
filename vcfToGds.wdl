@@ -4,7 +4,7 @@ task runGds {
 	Float memory
 
 	String out_base = basename(vcf, ".vcf")
-	
+
 
 	command {
 		R --vanilla --args ${vcf} ${out_base} < /vcfToGds/vcfToGds.R
@@ -21,13 +21,13 @@ task runGds {
 	}
 }
 
-workflow w {
+workflow makegds {
 	Array[File] vcf_files
 	Int this_disk
 	Float this_memory
 
 	scatter(this_file in vcf_files) {
-		call runGds { 
+		call runGds {
 			input: vcf = this_file, disk = this_disk, memory = this_memory
 		}
 	}
