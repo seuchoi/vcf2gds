@@ -2,18 +2,20 @@ task runGds {
 	File vcf
 	Int disk
 	Float memory
+	Int cpus
 
 	String out_base = basename(vcf, ".vcf")
 
 
 	command {
-		R --vanilla --args ${vcf} ${out_base} < /vcfToGds/vcfToGds.R
+		R --vanilla --args ${vcf} ${out_base} ${cpus}< /vcfToGds/vcfToGds.R
 	}
 
 	runtime {
 		docker: "manninglab/vcftogds:latest"
 		disks: "local-disk ${disk} SSD"
 		memory: "${memory} GB"
+		cpu : "${cpus}"
 	}
 
 	output {
