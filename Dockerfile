@@ -1,6 +1,6 @@
 from robbyjo/r-mkl-bioconductor:3.4.1
 
-MAINTAINER tim majarian (tmajaria@broadinstitute.org)
+MAINTAINER Seung Hoan Choi (choi@broadinstitute.org)
 
 RUN apt-get update
 RUN apt-get -y install git
@@ -11,6 +11,4 @@ RUN echo 'source("https://bioconductor.org/biocLite.R")' > install.R && \
 	Rscript --vanilla install.R && \
 	rm install.R
 
-RUN git clone https://github.com/manning-lab/vcfToGds.git && cd ./vcfToGds && git pull origin master
-ssdfsdfsdfsdfsdf
-sdfsdf
+RUN git clone https://github.com/seuchoi/vcf2gds.git && cd ./vcf2Gds && git pull origin master
