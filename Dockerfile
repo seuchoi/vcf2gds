@@ -11,4 +11,4 @@ RUN echo 'source("https://bioconductor.org/biocLite.R")' > install.R && \
 	Rscript --vanilla install.R && \
 	rm install.R
 
-RUN git clone https://github.com/seuchoi/vcf2gds.git && cd ./vcf2Gds && git pull origin master
+RUN git clone https://github.com/seuchoi/vcf2gds.git && cd ./vcf2gds && git pull origin master
