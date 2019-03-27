@@ -9,10 +9,11 @@ library(SeqArray)
 args <- commandArgs(trailingOnly=T)
 vcf <- args[1]
 gds_out <- paste(args[2],".gds",sep="")
-ncpu <- as.numeric(args[3])
+#ncpu <- as.numeric(args[3])
 
 ##### convert vcf to gds
-seqVCF2GDS(vcf, gds_out, storage.option="LZMA_RA", parallel=ncpu, verbose=TRUE)
+#seqVCF2GDS(vcf, gds_out, storage.option="LZMA_RA", parallel=ncpu, verbose=TRUE)
+seqVCF2GDS(vcf, gds_out, storage.option="LZMA_RA", verbose=TRUE)
 
 ##### complete conversion
 end_time <- Sys.time()
