@@ -4,7 +4,7 @@ task runGds {
 	Float memory
 	Int cpus
 
-	String out_base = basename(vcf, ".vcf")
+	String out_base = basename(vcf, ".vcf.gz")
 
 
 	command {
