@@ -9,7 +9,7 @@ task runGds {
 
 	command {
 #		R --vanilla --args ${vcf} ${out_base} ${cpus}< /vcfToGds/vcfToGds.R
-		R --vanilla --args ${vcf} ${out_base} < /vcf2Gds/vcfToGds.R
+		R --vanilla --args ${vcf} ${out_base} < /vcf2gds/vcfToGds.R
 	}
 
 	runtime {
