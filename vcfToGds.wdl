@@ -12,7 +12,7 @@ task runGds {
 	}
 
 	runtime {
-		docker: "manninglab/vcftogds:latest"
+		docker: "schoi/vcf2gds:latest"
 		disks: "local-disk ${disk} SSD"
 		memory: "${memory} GB"
 		cpu : "${cpus}"
@@ -26,11 +26,12 @@ task runGds {
 workflow makegds {
 	Array[File] vcf_files
 	Int this_disk
+	Int this_cpus
 	Float this_memory
 
 	scatter(this_file in vcf_files) {
 		call runGds {
-			input: vcf = this_file, disk = this_disk, memory = this_memory
+			input: vcf = this_file, disk = this_disk, memory = this_memory, cpus = this_cpus, 
 		}
 	}
 
