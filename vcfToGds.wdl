@@ -31,7 +31,7 @@ workflow makegds {
 
 	scatter(this_file in vcf_files) {
 		call runGds {
-			input: vcf = this_file, disk = this_disk, memory = this_memory, cpus = this_cpus, 
+			input: vcf = this_file, disk = this_disk, memory = this_memory, cpus = this_cpus
 		}
 	}
 
