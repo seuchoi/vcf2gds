@@ -12,7 +12,7 @@ task runGds {
 	}
 
 	runtime {
-		docker: "gcr.io/broad-afib-pipeline/gmmat:latest"
+		docker: "gcr.io/broad-afib-pipeline/gmmat:v1"
 		disks: "local-disk ${disk} HDD"
 		memory: "${memory} GB"
 		cpu : "${cpus}"
