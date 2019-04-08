@@ -3,12 +3,15 @@ task runGds {
 	Int disk
 	Float memory
 	Int cpus
+
 	String out_base = basename(vcf, ".vcf.gz")
 
 
 	command {
-		git clone https://github.com/seuchoi/vcf2gds.git
-		R CMD BATCH "--args ${vcf} ${out_base} ${cpus}" /vcf2gds/vcf2gds.R > ${out_base}.out
+git clone https://github.com/seuchoi/vcf2gds.git
+
+R CMD BATCH "--args ${vcf} ${out_base} ${cpus}" ./vcf2gds/vcf2gds.R > ${out_base}.out
+
 	}
 
 	runtime {
