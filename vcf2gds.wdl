@@ -8,19 +8,20 @@ task runGds {
 
 
 	command {
-#		R --vanilla --args ${vcf} ${out_base} ${cpus}< /vcfToGds/vcfToGds.R
-		R --vanilla --args ${vcf} ${out_base} ${cpus} < /vcf2gds/vcf2gds.R
+		git clone https://github.com/seuchoi/vcf2gds.git
+		R CMD BATCH "--args ${vcf} ${out_base} ${cpus}" /vcf2gds/vcf2gds.R > ${out_base}.out
 	}
 
 	runtime {
 		docker: "schoi/vcf2gds:latest"
-		disks: "local-disk ${disk} SSD"
+		disks: "local-disk ${disk} HDD"
 		memory: "${memory} GB"
 		cpu : "${cpus}"
 	}
 
 	output {
-		File out_file = "${out_base}.gds"
+		File out_file1 = "${out_base}.gds"
+		File out_file2 = "${out_base}.out"
 	}
 }
 
@@ -38,6 +39,7 @@ workflow makegds {
 
 
 	output {
-		Array[File] gds_files = runGds.out_file
+		Array[File] gds_files = runGds.out_file1
+		Array[File] out_files = runGds.out_file2
 	}
 }
