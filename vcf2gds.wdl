@@ -3,7 +3,6 @@ task runGds {
 	Int disk
 	Float memory
 	Int cpus
-
 	String out_base = basename(vcf, ".vcf.gz")
 
 
@@ -13,7 +12,7 @@ task runGds {
 	}
 
 	runtime {
-		docker: "schoi/vcf2gds:latest"
+		docker: "gcr.io/broad-afib-pipeline/gmmat:latest"
 		disks: "local-disk ${disk} HDD"
 		memory: "${memory} GB"
 		cpu : "${cpus}"
