@@ -1,7 +1,4 @@
 # vcf2gds
-### who am I ????
-check the wdl scripts\n
-
 #### check wether my wdl script is correct
 java -jar /Users/schoi/cromwell/womtool-38.jar validate vcfToGds.wdl\n
 
